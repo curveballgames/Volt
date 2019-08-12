@@ -19,6 +19,8 @@ namespace Volt
         }
 
         public static List<LevelModel> AllLevels { get; private set; }
+        public static int CurrentLevelIndex { get; private set; }
+        public static LevelModel CurrentLevel { get => AllLevels[CurrentLevelIndex]; }
 
         public bool AlwaysCreateNewSaveData = true;
 
@@ -27,6 +29,7 @@ namespace Volt
             DontDestroyOnLoad(gameObject);
 
             EventSystem.Subscribe<LoadGameDataEvent>(OnLoadGameData, this);
+            EventSystem.Subscribe<LoadLevelEvent>(OnLoadLevel, this);
         }
 
         void OnLoadGameData(LoadGameDataEvent e)
@@ -38,6 +41,11 @@ namespace Volt
                 EventSystem.Unsubscribe<LoadGameDataEvent>(OnLoadGameData, this);
                 EventSystem.Publish(new GameDataLoadedEvent());
             });
+        }
+
+        void OnLoadLevel(LoadLevelEvent e)
+        {
+            CurrentLevelIndex = e.LevelIndex;
         }
 
         void LoadLevelData()

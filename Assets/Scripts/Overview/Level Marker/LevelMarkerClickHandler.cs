@@ -17,6 +17,7 @@ namespace Volt
             if (hoveredMarker != null && Input.GetButton("Select"))
             {
                 EventSystem.Publish(new LoadLevelEvent(hoveredMarker.LinkedLevelIndex));
+                SetActive(false);
             }
         }
 

@@ -8,7 +8,7 @@ namespace Volt
         {
             return new List<LevelModel>
             {
-                new LevelModel("Level 1", "Level 1", new BuildingIdentifier[]{ BuildingIdentifier.SolarPlant }, new ChallengeModel[]{}, new LevelCondition[]{}),
+                new LevelModel("Level 1", "Level 1", new BuildingIdentifier[]{ BuildingIdentifier.SolarPlant, BuildingIdentifier.WindTurbine }, new ChallengeModel[]{}, new LevelCondition[]{}),
                 new LevelModel("Level 2", "Level 2", new BuildingIdentifier[]{ BuildingIdentifier.SolarPlant }, new ChallengeModel[]{}, new LevelCondition[]{})
             };
         }

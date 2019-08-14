@@ -39,10 +39,10 @@ namespace Volt
         void LoadCoreLevelScene(int levelIndex)
         {
             sceneLoadOperation = SceneManager.LoadSceneAsync("Core Level Scene", LoadSceneMode.Single);
-            StartCoroutine(LoadSpecificLevelScene());
+            StartCoroutine(LoadSpecificLevelSceneWhenCoreLoadIsComplete());
         }
 
-        IEnumerator LoadSpecificLevelScene()
+        IEnumerator LoadSpecificLevelSceneWhenCoreLoadIsComplete()
         {
             while (sceneLoadOperation != null && !sceneLoadOperation.isDone)
             {
@@ -50,10 +50,10 @@ namespace Volt
             }
 
             sceneLoadOperation = SceneManager.LoadSceneAsync(LevelStore.CurrentLevel.SceneName, LoadSceneMode.Additive);
-            StartCoroutine(PublishLevelLoadedEvent());
+            StartCoroutine(PublishLevelLoadedEventWhenMainSceneLoaded());
         }
 
-        IEnumerator PublishLevelLoadedEvent()
+        IEnumerator PublishLevelLoadedEventWhenMainSceneLoaded()
         {
             while (sceneLoadOperation != null && !sceneLoadOperation.isDone)
             {

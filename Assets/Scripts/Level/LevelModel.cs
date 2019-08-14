@@ -5,17 +5,17 @@
     {
         public string LevelName;
         public string SceneName;
+        public BuildingIdentifier[] AvailableBuildings;
         public ChallengeModel[] Challenges;
         public LevelCondition[] Conditions;
 
-        public LevelModel(string levelName, string sceneName, ChallengeModel[] challenges, LevelCondition[] conditions)
+        public LevelModel(string levelName, string sceneName, BuildingIdentifier[] availableBuildings, ChallengeModel[] challenges, LevelCondition[] conditions)
         {
             LevelName = levelName;
             SceneName = sceneName;
+            AvailableBuildings = availableBuildings;
             Challenges = challenges;
             Conditions = conditions;
         }
-
-        // TODO: available buildings
     }
 }

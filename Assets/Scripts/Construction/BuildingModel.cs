@@ -1,12 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Curveball;
+﻿using Curveball;
 
 namespace Volt
 {
     public class BuildingModel : CBGGameObject
     {
-        
+        public BuildingView View;
+
+        public void Place()
+        {
+            // TODO: fire event?
+        }
     }
 }

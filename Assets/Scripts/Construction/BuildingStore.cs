@@ -6,7 +6,7 @@ namespace Volt
     public class BuildingStore : CBGGameObject
     {
         private static BuildingStore singleton;
-        private static Dictionary<BuildingIdentifier, BuildingModel> PrefabsByIdentifier;
+        private static Dictionary<BuildingIdentifier, BuildingModel> prefabsByIdentifier;
 
         public BuildingPrefabDefinition[] PrefabDefinitions;
 
@@ -20,12 +20,17 @@ namespace Volt
 
         void CreatePrefabDictionary()
         {
-            PrefabsByIdentifier = new Dictionary<BuildingIdentifier, BuildingModel>();
+            prefabsByIdentifier = new Dictionary<BuildingIdentifier, BuildingModel>();
 
             foreach (BuildingPrefabDefinition prefabDefinition in PrefabDefinitions)
             {
-                PrefabsByIdentifier.Add(prefabDefinition.Identifier, prefabDefinition.Prefab);
+                prefabsByIdentifier.Add(prefabDefinition.Identifier, prefabDefinition.Prefab);
             }
+        }
+
+        public static BuildingModel GetBuildingWithIdentifier(BuildingIdentifier identifier)
+        {
+            return prefabsByIdentifier[identifier];
         }
     }
 }

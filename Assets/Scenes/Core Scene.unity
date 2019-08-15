@@ -236,7 +236,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1133c7969e8c13c458a519f0c6aeb4c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildingPrefabs: []
+  PrefabDefinitions:
+  - Identifier: 0
+    Prefab: {fileID: 4154585676259224050, guid: 4f34a6d73c1f445418b95eb65c140fa0,
+      type: 3}
+  - Identifier: 1
+    Prefab: {fileID: 4154585676259224050, guid: 3652ab5c1b5f79e47ae849b9e8740bc3,
+      type: 3}
 --- !u!4 &1347939701
 Transform:
   m_ObjectHideFlags: 0

@@ -5,11 +5,11 @@ namespace Volt
 {
     public class BuildGridManager : CBGGameObject
     {
-        private static HashSet<BuildGridReference> occupiedTiles;
+        private static Dictionary<BuildGridReference, TileOccupant> occupiedTiles;
 
         private void Awake()
         {
-            occupiedTiles = new HashSet<BuildGridReference>();
+            occupiedTiles = new Dictionary<BuildGridReference, TileOccupant>();
         }
 
         private void OnDestroy()
@@ -20,12 +20,12 @@ namespace Volt
 
         public static bool CanBuildAt(int x, int z)
         {
-            return !occupiedTiles.Contains(new BuildGridReference(x, z));
+            return !occupiedTiles.ContainsKey(new BuildGridReference(x, z));
         }
 
         public static bool CanBuildAt(int x, int z, int size)
         {
-            foreach (BuildGridReference gr in GetGridReferences(x, z, size))
+            foreach (BuildGridReference gr in Utilities.GetGridReferences(x, z, size))
             {
                 if (!CanBuildAt(gr.X, gr.Z))
                 {
@@ -41,35 +41,32 @@ namespace Volt
             return CanBuildAt(gridRef.X, gridRef.Z, size);
         }
 
-        public static void OccupyTile(int x, int z)
+        public static void OccupyTile(int x, int z, TileOccupant occupantType)
         {
-            occupiedTiles.Add(new BuildGridReference(x, z));
+            occupiedTiles.Add(new BuildGridReference(x, z), occupantType);
         }
 
-        public static void OccupyTiles(int x, int z, int size)
+        public static void OccupyTiles(int x, int z, int size, TileOccupant occupantType)
         {
-            foreach (BuildGridReference gr in GetGridReferences(x, z, size))
+            foreach (BuildGridReference gr in Utilities.GetGridReferences(x, z, size))
             {
-                occupiedTiles.Add(gr);
+                occupiedTiles.Add(gr, occupantType);
             }
         }
 
-        private static List<BuildGridReference> GetGridReferences(int x, int z, int size)
+        public static void OccupyTiles(BuildGridArea area, TileOccupant occupantType)
         {
-            List<BuildGridReference> gridReferences = new List<BuildGridReference>();
+            OccupyTiles(area.MinX, area.MinZ, area.Size, occupantType);
+        }
 
-            int toX = x + size - 1;
-            int toZ = z + size - 1;
-
-            for (; x <= toX; x++)
+        public static TileOccupant GetOccupantAtLocation(BuildGridReference gr)
+        {
+            if (!occupiedTiles.ContainsKey(gr))
             {
-                for (; z <= toZ; z++)
-                {
-                    gridReferences.Add(new BuildGridReference(x, z));
-                }
+                return TileOccupant.Empty;
             }
 
-            return gridReferences;
+            return occupiedTiles[gr];
         }
     }
 }

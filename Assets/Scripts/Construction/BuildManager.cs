@@ -74,7 +74,7 @@ namespace Volt
             int z = (int)buildingBeingPlaced.transform.position.z;
             int size = buildingBeingPlaced.View.Size;
 
-            BuildGridManager.OccupyTiles(x, z, size);
+            BuildGridManager.OccupyTiles(x, z, size, TileOccupant.PlayerBuilding);
 
             buildingBeingPlaced.Place();
             buildingBeingPlaced = null;

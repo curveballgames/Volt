@@ -27,5 +27,10 @@
         {
             return X * 512 + Z;
         }
+
+        public override string ToString()
+        {
+            return string.Format("[x: {0}, z: {1}]", X, Z);
+        }
     }
 }

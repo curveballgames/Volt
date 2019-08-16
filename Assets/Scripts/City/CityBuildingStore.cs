@@ -7,6 +7,7 @@ namespace Volt
         private static CityBuildingStore singleton;
 
         public CityBuildingModel CityCentrePrefab;
+        public CityBuildingModel[] CityBuildingPrefabs;
 
         private void Awake()
         {
@@ -17,6 +18,11 @@ namespace Volt
         public static CityBuildingModel GetCityCentrePrefab()
         {
             return singleton.CityCentrePrefab;
+        }
+
+        public static CityBuildingModel GetRandomCityBuilding()
+        {
+            return Curveball.Utilities.SelectRandomlyFromArray(singleton.CityBuildingPrefabs);
         }
     }
 }

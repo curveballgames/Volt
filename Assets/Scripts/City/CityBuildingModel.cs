@@ -12,7 +12,7 @@ namespace Volt
             int x = Mathf.FloorToInt(transform.position.x);
             int z = Mathf.FloorToInt(transform.position.z);
 
-            BuildGridManager.OccupyTiles(x, z, Size);
+            BuildGridManager.OccupyTiles(x, z, Size, TileOccupant.CityBuilding);
         }
     }
 }

@@ -165,6 +165,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CityCentrePrefab: {fileID: 238533307705117856, guid: b3bfcd85c0a2d0343a19b8658127f9ee,
     type: 3}
+  CityBuildingPrefabs:
+  - {fileID: 238533307705117856, guid: 608fd111d347fee47a9aeda5b60b1804, type: 3}
+  - {fileID: 238533307705117856, guid: 0fc567b9261c5c3468f7dfa714cbe1ce, type: 3}
 --- !u!1 &630727520
 GameObject:
   m_ObjectHideFlags: 0

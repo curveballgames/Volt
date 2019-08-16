@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 238533307705117859}
   - component: {fileID: 238533307705117856}
   m_Layer: 0
-  m_Name: City Centre
+  m_Name: City Building 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2611c7ecfc08c64981dc540824342ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Size: 2
+  Size: 1
 --- !u!1 &238533308874881972
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,8 +71,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238533308874881972}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.5, z: 1}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalPosition: {x: 0.5, y: 1, z: 0.5}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 238533307705117859}
   m_RootOrder: 0
@@ -102,7 +102,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c3eff7f9d1416aa44b0936068a372503, type: 2}
+  - {fileID: 2100000, guid: 318d98316e812984abd69cc96987a237, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

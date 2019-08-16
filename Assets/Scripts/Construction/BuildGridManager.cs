@@ -5,22 +5,22 @@ namespace Volt
 {
     public class BuildGridManager : CBGGameObject
     {
-        private static HashSet<BuildGridReference> availableTiles;
+        private static HashSet<BuildGridReference> occupiedTiles;
 
         private void Awake()
         {
-            availableTiles = new HashSet<BuildGridReference>();
+            occupiedTiles = new HashSet<BuildGridReference>();
         }
 
         private void OnDestroy()
         {
-            availableTiles.Clear();
-            availableTiles = null;
+            occupiedTiles.Clear();
+            occupiedTiles = null;
         }
 
         public static bool CanBuildAt(int x, int z)
         {
-            return availableTiles.Contains(new BuildGridReference(x, z));
+            return !occupiedTiles.Contains(new BuildGridReference(x, z));
         }
 
         public static bool CanBuildAt(int x, int z, int size)
@@ -36,22 +36,22 @@ namespace Volt
             return true;
         }
 
+        public static bool CanBuildAt(BuildGridReference gridRef, int size)
+        {
+            return CanBuildAt(gridRef.X, gridRef.Z, size);
+        }
+
         public static void OccupyTile(int x, int z)
         {
-            availableTiles.Remove(new BuildGridReference(x, z));
+            occupiedTiles.Add(new BuildGridReference(x, z));
         }
 
         public static void OccupyTiles(int x, int z, int size)
         {
             foreach (BuildGridReference gr in GetGridReferences(x, z, size))
             {
-                availableTiles.Remove(gr);
+                occupiedTiles.Add(gr);
             }
-        }
-
-        public static void MakeTileAvailable(int x, int z)
-        {
-            availableTiles.Add(new BuildGridReference(x, z));
         }
 
         private static List<BuildGridReference> GetGridReferences(int x, int z, int size)

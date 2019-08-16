@@ -16,7 +16,7 @@ namespace Volt
 
             if (!placementLayerMask.HasValue)
             {
-                placementLayerMask = Utilities.GetCollisionMask("Ground", "Water");
+                placementLayerMask = Curveball.Utilities.GetCollisionMask("Ground", "Water");
             }
 
             EventSystem.Subscribe<StartConstructionEvent>(OnStartConstruction, this);
@@ -36,7 +36,7 @@ namespace Volt
 
             RaycastHit hitInfo;
 
-            if (Utilities.RaycastMousePosition(out hitInfo, placementLayerMask.Value, InGameCamera.Camera))
+            if (Curveball.Utilities.RaycastMousePosition(out hitInfo, placementLayerMask.Value, InGameCamera.Camera))
             {
                 int x = Mathf.FloorToInt(hitInfo.point.x);
                 int z = Mathf.FloorToInt(hitInfo.point.z);

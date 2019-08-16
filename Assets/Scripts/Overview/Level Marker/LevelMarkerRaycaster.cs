@@ -9,14 +9,14 @@ namespace Volt
 
         private void Awake()
         {
-            levelMarkerLayerMask = Utilities.GetLayerMaskForAllExcept("Level Marker");
+            levelMarkerLayerMask = Curveball.Utilities.GetLayerMaskForAllExcept("Level Marker");
         }
 
         private void Update()
         {
             RaycastHit hitInfo;
 
-            if (Utilities.RaycastMousePosition(out hitInfo, levelMarkerLayerMask, OverviewCamera.Camera))
+            if (Curveball.Utilities.RaycastMousePosition(out hitInfo, levelMarkerLayerMask, OverviewCamera.Camera))
             {
                 EventSystem.Publish(new LevelMarkerHoverUpdateEvent(hitInfo.collider.GetComponentInChildren<LevelMarker>()));
             }

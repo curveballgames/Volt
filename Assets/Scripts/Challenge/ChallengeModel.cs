@@ -13,5 +13,10 @@
         }
 
         public bool CompletedPreviously;
+
+        public void SoftReset()
+        {
+            Progress = 0;
+        }
     }
 }

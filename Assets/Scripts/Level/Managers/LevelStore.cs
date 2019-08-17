@@ -29,9 +29,12 @@ namespace Volt
         {
             DontDestroyOnLoad(gameObject);
             singleton = this;
+            CurrentLevelIndex = -1;
 
             EventSystem.Subscribe<LoadGameDataEvent>(OnLoadGameData, this);
             EventSystem.Subscribe<LoadLevelEvent>(OnLoadLevel, this);
+            EventSystem.Subscribe<FinishLevelEvent>(OnFinishLevel, this);
+            EventSystem.Subscribe<ReturnToOverviewEvent>(OnReturnToOverview, this);
         }
 
         void OnLoadGameData(LoadGameDataEvent e)
@@ -48,6 +51,31 @@ namespace Volt
         void OnLoadLevel(LoadLevelEvent e)
         {
             CurrentLevelIndex = e.LevelIndex;
+
+            for (int i = 0; i < CurrentLevel.Challenges.Length; i++)
+            {
+                CurrentLevel.Challenges[i].SoftReset();
+            }
+        }
+
+        void OnFinishLevel(FinishLevelEvent e)
+        {
+            for (int i = 0; i < CurrentLevel.Challenges.Length; i++)
+            {
+                if (CurrentLevel.Challenges[i].Completed)
+                {
+                    CurrentLevel.Challenges[i].CompletedPreviously = true;
+                }
+
+                CurrentLevel.Challenges[i].SoftReset();
+            }
+
+            SaveLevelData();
+        }
+
+        void OnReturnToOverview(ReturnToOverviewEvent e)
+        {
+            CurrentLevelIndex = -1;
         }
 
         void LoadLevelData()

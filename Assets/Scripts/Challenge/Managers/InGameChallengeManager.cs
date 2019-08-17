@@ -9,7 +9,7 @@ namespace Volt
         {
             for (int i = 0; i < LevelStore.CurrentLevel.Challenges.Length; i++)
             {
-                LevelStore.CurrentLevel.Challenges[i].Progress = 0;
+                LevelStore.CurrentLevel.Challenges[i].SoftReset();
             }
         }
 

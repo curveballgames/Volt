@@ -1,4 +1,5 @@
 ﻿using Curveball;
+using UnityEngine;
 
 namespace Volt
 {
@@ -23,6 +24,15 @@ namespace Volt
         void OnFinishLevel(FinishLevelEvent e)
         {
             LevelFinished = true;
+        }
+
+        // TODO: remove
+        public void ForceEnd()
+        {
+            if (Application.isEditor)
+            {
+                EventSystem.Publish(new FinishLevelEvent());
+            }
         }
     }
 }

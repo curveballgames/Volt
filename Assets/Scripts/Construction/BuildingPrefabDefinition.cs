@@ -4,6 +4,6 @@
     public class BuildingPrefabDefinition
     {
         public BuildingIdentifier Identifier;
-        public BuildingModel Prefab;
+        public PlayerBuildingModel Prefab;
     }
 }

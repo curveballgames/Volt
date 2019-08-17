@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using Curveball;
 using UnityEngine;
 
 namespace Volt
 {
-    public class Utilities : CBGGameObject
+    public class Utilities
     {
         public static BuildGridReference GetGridReference(Vector3 location)
         {

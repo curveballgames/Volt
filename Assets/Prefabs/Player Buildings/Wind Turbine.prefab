@@ -42,10 +42,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4154585676259224053}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6af3582fa85c1a44abd5a095abc28a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d3bee75a14a4ee4dae04bb68d9b80df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   View: {fileID: 4154585676259224051}
+  MaxPowerOutput: 10
+  EnergyType: 0
 --- !u!114 &4154585676259224051
 MonoBehaviour:
   m_ObjectHideFlags: 0

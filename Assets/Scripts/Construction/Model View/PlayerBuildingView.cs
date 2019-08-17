@@ -2,7 +2,7 @@
 
 namespace Volt
 {
-    public class BuildingView : CBGGameObject
+    public class PlayerBuildingView : CBGGameObject
     {
         public int Size;
 

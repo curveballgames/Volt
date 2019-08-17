@@ -7,7 +7,7 @@ namespace Volt
     {
         private static int? placementLayerMask;
 
-        private static BuildingModel buildingBeingPlaced;
+        private static PlayerBuildingModel buildingBeingPlaced;
         private static BuildingIdentifier? lastPlacedType;
 
         private void Awake()
@@ -101,8 +101,8 @@ namespace Volt
         {
             CancelConstruction();
 
-            BuildingModel buildingPrefab = BuildingStore.GetBuildingWithIdentifier(e.BuildingIdentifier);
-            buildingBeingPlaced = Instantiate(buildingPrefab.gameObject).GetComponent<BuildingModel>();
+            PlayerBuildingModel buildingPrefab = BuildingStore.GetBuildingWithIdentifier(e.BuildingIdentifier);
+            buildingBeingPlaced = Instantiate(buildingPrefab.gameObject).GetComponent<PlayerBuildingModel>();
             lastPlacedType = e.BuildingIdentifier;
         }
     }

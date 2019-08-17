@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using Curveball;
 using Newtonsoft.Json;
@@ -18,15 +17,18 @@ namespace Volt
             }
         }
 
-        public static List<LevelModel> AllLevels { get; private set; }
+        private static LevelStore singleton;
+
+        public LevelModel[] AllLevels;
         public static int CurrentLevelIndex { get; private set; }
-        public static LevelModel CurrentLevel { get => AllLevels[CurrentLevelIndex]; }
+        public static LevelModel CurrentLevel { get => singleton.AllLevels[CurrentLevelIndex]; }
 
         public bool AlwaysCreateNewSaveData = true;
 
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
+            singleton = this;
 
             EventSystem.Subscribe<LoadGameDataEvent>(OnLoadGameData, this);
             EventSystem.Subscribe<LoadLevelEvent>(OnLoadLevel, this);
@@ -59,7 +61,7 @@ namespace Volt
             try
             {
                 string allData = File.ReadAllText(saveDataPath);
-                AllLevels = JsonConvert.DeserializeObject<List<LevelModel>>(allData);
+                AllLevels = JsonConvert.DeserializeObject<LevelModel[]>(allData);
             }
             catch (Exception e)
             {
@@ -72,7 +74,6 @@ namespace Volt
 
         void CreateInitialSaveData()
         {
-            AllLevels = InitialLevelData.GetInitialLevelModels();
             SaveLevelData();
         }
 
@@ -87,6 +88,11 @@ namespace Volt
             {
                 Debug.Log(e.Message);
             }
+        }
+
+        public static LevelModel GetLevel(int index)
+        {
+            return singleton.AllLevels[index];
         }
     }
 }

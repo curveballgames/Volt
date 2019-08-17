@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Volt
 {
-    public class CityManager : CBGGameObject
+    public class CityExpansionManager : CBGGameObject
     {
         private const float SECONDS_BETWEEN_BUILDING_SPAWNS = 3f;
 

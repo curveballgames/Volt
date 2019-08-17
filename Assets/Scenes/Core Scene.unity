@@ -254,6 +254,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba40807c94fe4e3479baa2b722782482, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllLevels:
+  - {fileID: 11400000, guid: 84901befdcb63444db579b63d84ad67d, type: 2}
+  - {fileID: 11400000, guid: b129256ce22d36747b2da9f1492a51bf, type: 2}
   AlwaysCreateNewSaveData: 1
 --- !u!1 &1347939699
 GameObject:
@@ -289,6 +292,9 @@ MonoBehaviour:
     Prefab: {fileID: 4154585676259224050, guid: 4f34a6d73c1f445418b95eb65c140fa0,
       type: 3}
   - Identifier: 1
+    Prefab: {fileID: 4154585676259224050, guid: a9d3063d6cf78e04d880499fe8b28304,
+      type: 3}
+  - Identifier: 2
     Prefab: {fileID: 4154585676259224050, guid: 3652ab5c1b5f79e47ae849b9e8740bc3,
       type: 3}
 --- !u!4 &1347939701

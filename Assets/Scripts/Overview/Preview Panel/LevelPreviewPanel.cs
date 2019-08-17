@@ -55,7 +55,7 @@ namespace Volt
             if (marker == null)
                 return;
 
-            LevelModel model = LevelStore.AllLevels[marker.LinkedLevelIndex];
+            LevelModel model = LevelStore.GetLevel(marker.LinkedLevelIndex);
             Title.text = model.LevelName;
 
             for (int i = 0; i < ChallengePanels.Length; i++)

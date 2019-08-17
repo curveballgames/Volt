@@ -2,6 +2,6 @@
 {
     public enum BuildingIdentifier
     {
-        WindTurbine, SolarPlant
+        WindTurbine, SolarPlant, CoalPlant
     }
 }

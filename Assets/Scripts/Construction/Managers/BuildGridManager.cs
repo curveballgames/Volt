@@ -50,6 +50,7 @@ namespace Volt
         {
             foreach (BuildGridReference gr in Utilities.GetGridReferences(x, z, size))
             {
+                occupiedTiles.Remove(gr);
                 occupiedTiles.Add(gr, occupantType);
             }
         }

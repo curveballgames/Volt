@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 238533307705117859}
   - component: {fileID: 238533307705117856}
   m_Layer: 0
-  m_Name: City Centre 1
+  m_Name: City Building 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Size: 1
+  PowerDrain: 1
 --- !u!1 &238533308874881972
 GameObject:
   m_ObjectHideFlags: 0

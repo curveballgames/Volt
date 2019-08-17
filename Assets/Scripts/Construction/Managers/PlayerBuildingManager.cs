@@ -7,6 +7,8 @@ namespace Volt
     {
         public static List<PowerPlant> PowerPlants { get; private set; }
 
+        private static int? totalPower;
+
         private void Awake()
         {
             PowerPlants = new List<PowerPlant>();
@@ -21,6 +23,11 @@ namespace Volt
             EventSystem.Subscribe<PlayerBuildingPlacedEvent>(OnPlayerBuildingPlaced, this);
         }
 
+        private void LateUpdate()
+        {
+            totalPower = null;
+        }
+
         void OnPlayerBuildingPlaced(PlayerBuildingPlacedEvent e)
         {
             if (e.BuildingModel is PowerPlant)
@@ -31,14 +38,19 @@ namespace Volt
 
         public static int GetTotalPowerOutput()
         {
-            int totalPower = 0;
+            if (totalPower.HasValue)
+            {
+                return totalPower.Value;
+            }
+
+            totalPower = 0;
 
             foreach (PowerPlant pp in PowerPlants)
             {
                 totalPower += pp.GetPowerOutput();
             }
 
-            return totalPower;
+            return totalPower.Value;
         }
     }
 }

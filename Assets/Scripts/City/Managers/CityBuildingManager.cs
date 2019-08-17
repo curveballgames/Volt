@@ -6,11 +6,17 @@ namespace Volt
     public class CityBuildingManager : CBGGameObject
     {
         private static List<CityBuildingModel> cityBuildings;
+        private static int? totalDrain;
 
         private void Awake()
         {
             cityBuildings = new List<CityBuildingModel>();
             EventSystem.Subscribe<CityBuildingPlacedEvent>(OnCityBuildingPlaced, this);
+        }
+
+        private void LateUpdate()
+        {
+            totalDrain = null;
         }
 
         private void OnDestroy()
@@ -28,14 +34,19 @@ namespace Volt
 
         public static int GetTotalDrain()
         {
-            int totalDrain = 0;
+            if (totalDrain.HasValue)
+            {
+                return totalDrain.Value;
+            }
+
+            totalDrain = 0;
 
             foreach (CityBuildingModel cityBuilding in cityBuildings)
             {
                 totalDrain += cityBuilding.GetPowerDrain();
             }
 
-            return totalDrain;
+            return totalDrain.Value;
         }
     }
 }

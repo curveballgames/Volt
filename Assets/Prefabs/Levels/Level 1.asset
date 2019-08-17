@@ -15,6 +15,18 @@ MonoBehaviour:
   LevelName: Level 1
   SceneName: Level 1
   AvailableBuildings: 000000000100000002000000
-  Challenges: []
+  Challenges:
+  - Type: 0
+    Target: 10000
+    Progress: 0
+    CompletedPreviously: 0
+  - Type: 0
+    Target: 20000
+    Progress: 0
+    CompletedPreviously: 0
+  - Type: 1
+    Target: 100
+    Progress: 0
+    CompletedPreviously: 0
   Conditions: []
   StartingFunds: 5000

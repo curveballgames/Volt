@@ -20,16 +20,18 @@ namespace Volt
             }
 
             EventSystem.Subscribe<StartConstructionEvent>(OnStartConstruction, this);
+            EventSystem.Subscribe<FinishLevelEvent>(OnFinishLevel, this);
         }
 
         private void OnDestroy()
         {
             EventSystem.Unsubscribe<StartConstructionEvent>(OnStartConstruction, this);
+            EventSystem.Unsubscribe<FinishLevelEvent>(OnFinishLevel, this);
         }
 
         private void Update()
         {
-            if (buildingBeingPlaced == null)
+            if (buildingBeingPlaced == null || LevelStateManager.LevelFinished || LevelStateManager.Paused)
             {
                 return;
             }
@@ -104,6 +106,11 @@ namespace Volt
             PlayerBuildingModel buildingPrefab = BuildingStore.GetBuildingWithIdentifier(e.BuildingIdentifier);
             buildingBeingPlaced = Instantiate(buildingPrefab.gameObject).GetComponent<PlayerBuildingModel>();
             lastPlacedType = e.BuildingIdentifier;
+        }
+
+        void OnFinishLevel(FinishLevelEvent e)
+        {
+            CancelConstruction();
         }
     }
 }

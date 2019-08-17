@@ -14,6 +14,7 @@ namespace Volt
             DontDestroyOnLoad(gameObject);
             EventSystem.Subscribe<GameDataLoadedEvent>(OnGameDataLoaded, this);
             EventSystem.Subscribe<LoadLevelEvent>(OnLoadLevel, this);
+            EventSystem.Subscribe<ReturnToOverviewEvent>(OnReturnToOverview, this);
         }
 
         void OnGameDataLoaded(GameDataLoadedEvent e)
@@ -29,6 +30,11 @@ namespace Volt
         void OnLoadLevel(LoadLevelEvent e)
         {
             LoadCoreLevelScene(e.LevelIndex);
+        }
+
+        void OnReturnToOverview(ReturnToOverviewEvent e)
+        {
+            sceneLoadOperation = SceneManager.LoadSceneAsync("Overworld Scene", LoadSceneMode.Single);
         }
 
         void LoadInitialScene()

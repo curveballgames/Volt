@@ -17,10 +17,26 @@ namespace Volt
         private void Awake()
         {
             PowerFlowBar.MaxValue = SURGE_OR_CUT_STANDARD_DEVIATION;
+            EventSystem.Subscribe<FinishLevelEvent>(OnFinishLevel, this);
+        }
+
+        private void OnDestroy()
+        {
+            EventSystem.Unsubscribe<FinishLevelEvent>(OnFinishLevel, this);
+        }
+
+        void OnFinishLevel(FinishLevelEvent e)
+        {
+            SetActive(false);
         }
 
         private void Update()
         {
+            if (LevelStateManager.LevelFinished || LevelStateManager.Paused)
+            {
+                return;
+            }
+
             float powerOutput = PlayerBuildingManager.GetTotalPowerOutput();
             float powerDrain = CityBuildingManager.GetTotalDrain();
 

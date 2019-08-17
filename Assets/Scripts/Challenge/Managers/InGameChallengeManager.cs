@@ -15,9 +15,26 @@ namespace Volt
 
         private void Update()
         {
+            if (LevelStateManager.LevelFinished || LevelStateManager.Paused)
+            {
+                return;
+            }
+
+            bool allChallengesCompleted = true;
+
             for (int i = 0; i < LevelStore.CurrentLevel.Challenges.Length; i++)
             {
                 UpdateChallenge(ref LevelStore.CurrentLevel.Challenges[i]);
+
+                if (!LevelStore.CurrentLevel.Challenges[i].Completed)
+                {
+                    allChallengesCompleted = false;
+                }
+            }
+
+            if (allChallengesCompleted)
+            {
+                EventSystem.Publish(new FinishLevelEvent());
             }
         }
 

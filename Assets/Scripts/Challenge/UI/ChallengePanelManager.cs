@@ -6,6 +6,16 @@ namespace Volt
     {
         public ChallengePanel[] Panels;
 
+        private void Awake()
+        {
+            EventSystem.Subscribe<FinishLevelEvent>(OnFinishLevel, this);
+        }
+
+        private void OnDestroy()
+        {
+            EventSystem.Unsubscribe<FinishLevelEvent>(OnFinishLevel, this);
+        }
+
         private void Start()
         {
             UpdatePanels();
@@ -13,6 +23,11 @@ namespace Volt
 
         private void LateUpdate()
         {
+            if (LevelStateManager.LevelFinished || LevelStateManager.Paused)
+            {
+                return;
+            }
+
             UpdatePanels();
         }
 
@@ -32,6 +47,11 @@ namespace Volt
                     Panels[i].UpdateForChallenge(challenges[i]);
                 }
             }
+        }
+
+        void OnFinishLevel(FinishLevelEvent e)
+        {
+            SetActive(false);
         }
     }
 }

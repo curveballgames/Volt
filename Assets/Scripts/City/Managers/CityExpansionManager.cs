@@ -22,7 +22,7 @@ namespace Volt
 
         private void Update()
         {
-            if (!startSpawning)
+            if (!startSpawning || LevelStateManager.LevelFinished || LevelStateManager.Paused)
             {
                 return;
             }

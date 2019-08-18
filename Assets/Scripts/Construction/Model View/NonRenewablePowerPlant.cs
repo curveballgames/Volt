@@ -15,12 +15,12 @@ namespace Volt
 
         public override int GetPowerOutput()
         {
-            return Mathf.CeilToInt(MaxPowerOutput * ConsumptionRate);
+            return Mathf.RoundToInt(MaxPowerOutput * ConsumptionRate);
         }
 
         public override int GetPollutionOutput()
         {
-            return Mathf.CeilToInt(PollutionRate * ConsumptionRate);
+            return Mathf.FloorToInt(PollutionRate * ConsumptionRate);
         }
     }
 }

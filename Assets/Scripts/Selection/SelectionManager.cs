@@ -31,14 +31,21 @@ namespace Volt
                 return;
             }
 
-            if (Input.GetButtonDown("Cancel Selection") || (selectedObject != null && Input.GetButtonDown("Select")))
+            if (Input.GetButtonDown("Cancel Selection"))
+            {
+                SetSelectedObject(null);
+            }
+
+            bool blockedByUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
+
+            if (!blockedByUI && Input.GetButtonDown("Select"))
             {
                 SetSelectedObject(null);
             }
 
             RaycastHit hitInfo;
 
-            if (!Curveball.Utilities.RaycastMousePosition(out hitInfo, layerMask, InGameCamera.Camera) || UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+            if (!Curveball.Utilities.RaycastMousePosition(out hitInfo, layerMask, InGameCamera.Camera) || blockedByUI)
             {
                 SetHighlightedObject(null);
                 return;

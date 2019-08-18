@@ -11,5 +11,10 @@ namespace Volt
             float modifier = WeatherManager.GetModifierForEnergyType(EnergyType);
             return Mathf.CeilToInt(MaxPowerOutput * modifier);
         }
+
+        public override int GetPollutionOutput()
+        {
+            return 0;
+        }
     }
 }

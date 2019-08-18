@@ -1,14 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!1386491679 &1
-PresetManager:
-  m_ObjectHideFlags: 0
-  m_DefaultList:
-  - type:
-      m_NativeTypeID: 114
-      m_ManagedTypePPtr: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5,
-        type: 3}
-      m_ManagedTypeFallback: 
-    defaultPresets:
-    - m_Preset: {fileID: 2655988077585873504, guid: bf45b1256a8612440bc25a161d47ba3e,
-        type: 2}
+version https://git-lfs.github.com/spec/v1
+oid sha256:d5100d3497d05b6bf33d161f6acb5e7f589558f586642bfb5d75572959fbf691
+size 407

@@ -6,7 +6,16 @@ namespace Volt
 {
     public class CityExpansionManager : CBGGameObject
     {
-        private const float SECONDS_BETWEEN_BUILDING_SPAWNS = 3f;
+        private const float SECONDS_BETWEEN_BUILDING_SPAWNS = 5f;
+
+        private static float PollutionGrowthModifier
+        {
+            get
+            {
+                // 100 is point at which more pollution does not affect growth. 0.75 is the amount to reduce by if at maximum amount.
+                return 1f - Mathf.Clamp01(PollutionManager.GetTotalPollution() / 500) * 0.75f;
+            }
+        }
 
         private static HashSet<BuildGridReference> expansionAreas;
 
@@ -27,7 +36,7 @@ namespace Volt
                 return;
             }
 
-            spawnTimer -= Time.deltaTime;
+            spawnTimer -= Time.deltaTime * PollutionGrowthModifier;
 
             if (spawnTimer <= 0f)
             {

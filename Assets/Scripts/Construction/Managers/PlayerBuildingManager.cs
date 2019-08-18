@@ -7,12 +7,16 @@ namespace Volt
     {
         public static List<PowerPlant> PowerPlants { get; private set; }
 
-        private static int? totalPower;
+        private static CachedCalculator powerOutputCalculator;
+        private static CachedCalculator pollutionCalculator;
 
         private void Awake()
         {
             PowerPlants = new List<PowerPlant>();
             EventSystem.Subscribe<PlayerBuildingPlacedEvent>(OnPlayerBuildingPlaced, this);
+
+            powerOutputCalculator = new CachedCalculator(CalculatePowerOutput);
+            pollutionCalculator = new CachedCalculator(CalculatePollutionOutput);
         }
 
         private void OnDestroy()
@@ -21,11 +25,6 @@ namespace Volt
             PowerPlants = null;
 
             EventSystem.Subscribe<PlayerBuildingPlacedEvent>(OnPlayerBuildingPlaced, this);
-        }
-
-        private void LateUpdate()
-        {
-            totalPower = null;
         }
 
         void OnPlayerBuildingPlaced(PlayerBuildingPlacedEvent e)
@@ -38,19 +37,36 @@ namespace Volt
 
         public static int GetTotalPowerOutput()
         {
-            if (totalPower.HasValue)
+            return powerOutputCalculator.GetCalculation();
+        }
+
+        public static int GetTotalPollution()
+        {
+            return pollutionCalculator.GetCalculation();
+        }
+
+        private static int CalculatePowerOutput()
+        {
+            int power = 0;
+
+            foreach (var powerPlant in PowerPlants)
             {
-                return totalPower.Value;
+                power += powerPlant.GetPowerOutput();
             }
 
-            totalPower = 0;
+            return power;
+        }
 
-            foreach (PowerPlant pp in PowerPlants)
+        private static int CalculatePollutionOutput()
+        {
+            int power = 0;
+
+            foreach (var powerPlant in PowerPlants)
             {
-                totalPower += pp.GetPowerOutput();
+                power += powerPlant.GetPollutionOutput();
             }
 
-            return totalPower.Value;
+            return power;
         }
     }
 }

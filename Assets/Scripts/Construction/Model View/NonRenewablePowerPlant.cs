@@ -5,6 +5,7 @@ namespace Volt
     public class NonRenewablePowerPlant : PowerPlant
     {
         public float ConsumptionRate { get; set; }
+        public int PollutionRate;
 
         public override void Place()
         {
@@ -15,6 +16,11 @@ namespace Volt
         public override int GetPowerOutput()
         {
             return Mathf.CeilToInt(MaxPowerOutput * ConsumptionRate);
+        }
+
+        public override int GetPollutionOutput()
+        {
+            return Mathf.CeilToInt(PollutionRate * ConsumptionRate);
         }
     }
 }

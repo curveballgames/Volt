@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   View: {fileID: 4154585676259224051}
   MaxPowerOutput: 25
+  PollutionRate: 100
 --- !u!114 &4154585676259224051
 MonoBehaviour:
   m_ObjectHideFlags: 0

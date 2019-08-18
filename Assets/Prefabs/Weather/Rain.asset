@@ -1,18 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7137b26d2fc8bb047b431e264b3197ec, type: 3}
-  m_Name: Rain
-  m_EditorClassIdentifier: 
-  Type: 4
-  WindSpeedModifier: 0.6
-  RainModifier: 0.5
-  SunlightModifier: 0.7
+version https://git-lfs.github.com/spec/v1
+oid sha256:8cf8bf7c0fca960355b7c2076e8c80ac45680a26c4f307ff281ec0c77180b857
+size 472

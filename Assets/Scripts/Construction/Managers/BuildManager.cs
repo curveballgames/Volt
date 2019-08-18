@@ -72,8 +72,10 @@ namespace Volt
                 return;
             }
 
-            int x = (int)buildingBeingPlaced.transform.position.x;
-            int z = (int)buildingBeingPlaced.transform.position.z;
+            Vector3 buildingLocation = buildingBeingPlaced.transform.position;
+
+            int x = (int)buildingLocation.x;
+            int z = (int)buildingLocation.z;
             int size = buildingBeingPlaced.View.Size;
 
             BuildGridManager.OccupyTiles(x, z, size, TileOccupant.PlayerBuilding);
@@ -84,6 +86,7 @@ namespace Volt
             if (Input.GetButton("Multiplace") && lastPlacedType.HasValue)
             {
                 EventSystem.Publish(new StartConstructionEvent(lastPlacedType.Value));
+                buildingBeingPlaced.transform.position = buildingLocation;
             }
             else
             {

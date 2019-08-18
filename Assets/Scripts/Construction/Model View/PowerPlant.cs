@@ -5,5 +5,7 @@
         public int MaxPowerOutput;
 
         public abstract int GetPowerOutput();
+
+        public abstract int GetPollutionOutput();
     }
 }

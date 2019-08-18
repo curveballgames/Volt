@@ -1,33 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35ad940c33bbf3d409604c31f0f11690, type: 3}
-  m_Name: Level 1
-  m_EditorClassIdentifier: 
-  LevelName: Level 1
-  SceneName: Level 1
-  AvailableBuildings: 000000000100000002000000
-  Challenges:
-  - Type: 0
-    Target: 10000
-    Progress: 0
-    CompletedPreviously: 0
-  - Type: 0
-    Target: 20000
-    Progress: 0
-    CompletedPreviously: 0
-  - Type: 1
-    Target: 100
-    Progress: 0
-    CompletedPreviously: 0
-  Conditions: []
-  WeatherConditions: 000000000100000002000000
-  StartingFunds: 5000
+version https://git-lfs.github.com/spec/v1
+oid sha256:1334dba033d49296b46da3c8ae8834cebeee4537a2c3348338bb401b4dd3ddb4
+size 801

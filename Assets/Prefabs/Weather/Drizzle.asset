@@ -1,18 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7137b26d2fc8bb047b431e264b3197ec, type: 3}
-  m_Name: Drizzle
-  m_EditorClassIdentifier: 
-  Type: 3
-  WindSpeedModifier: 0.5
-  RainModifier: 0.3
-  SunlightModifier: 0.8
+version https://git-lfs.github.com/spec/v1
+oid sha256:e076a5af70d56ff3dfca629ed1a9670ba9acdabfa1865a7a0c7aeeea63129a67
+size 475

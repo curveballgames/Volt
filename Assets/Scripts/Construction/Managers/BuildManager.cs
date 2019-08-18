@@ -10,6 +10,8 @@ namespace Volt
         private static PlayerBuildingModel buildingBeingPlaced;
         private static BuildingIdentifier? lastPlacedType;
 
+        public static bool IsBuilding { get => buildingBeingPlaced != null; }
+
         private void Awake()
         {
             buildingBeingPlaced = null;
@@ -36,32 +38,38 @@ namespace Volt
                 return;
             }
 
+            if (Input.GetButtonDown("Cancel Selection"))
+            {
+                CancelConstruction();
+                return;
+            }
+
             RaycastHit hitInfo;
 
-            if (Curveball.Utilities.RaycastMousePosition(out hitInfo, placementLayerMask.Value, InGameCamera.Camera))
-            {
-                int x = Mathf.FloorToInt(hitInfo.point.x);
-                int z = Mathf.FloorToInt(hitInfo.point.z);
-
-                buildingBeingPlaced.transform.position = new Vector3(x, 0f, z);
-
-                if (BuildGridManager.CanBuildAt(x, z, buildingBeingPlaced.View.Size))
-                {
-                    buildingBeingPlaced.View.RenderPlaceable();
-
-                    if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject() && Input.GetButtonDown("Place"))
-                    {
-                        PlaceBuilding();
-                    }
-                }
-                else
-                {
-                    buildingBeingPlaced.View.RenderUnplaceable();
-                }
-            }
-            else
+            if (!Curveball.Utilities.RaycastMousePosition(out hitInfo, placementLayerMask.Value, InGameCamera.Camera))
             {
                 buildingBeingPlaced.View.RenderUnplaceable();
+                return;
+            }
+
+            int x = Mathf.FloorToInt(hitInfo.point.x);
+            int z = Mathf.FloorToInt(hitInfo.point.z);
+
+            buildingBeingPlaced.transform.position = new Vector3(x, 0f, z);
+
+            if (!BuildGridManager.CanBuildAt(x, z, buildingBeingPlaced.View.Size))
+            {
+
+                buildingBeingPlaced.View.RenderUnplaceable();
+                return;
+
+            }
+
+            buildingBeingPlaced.View.RenderPlaceable();
+
+            if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject() && Input.GetButtonDown("Place"))
+            {
+                PlaceBuilding();
             }
         }
 

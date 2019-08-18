@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 396932075}
   - component: {fileID: 396932077}
   - component: {fileID: 396932076}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9190694134110646831}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Anchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,8 @@ GameObject:
   - component: {fileID: 4154585676259224052}
   - component: {fileID: 4154585676259224050}
   - component: {fileID: 4154585676259224051}
-  m_Layer: 0
+  - component: {fileID: -7402061799388075044}
+  m_Layer: 10
   m_Name: Coal Plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,3 +170,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Size: 2
+--- !u!65 &-7402061799388075044
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4154585676259224053}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1, z: 2}
+  m_Center: {x: 1, y: 0.5, z: 1}

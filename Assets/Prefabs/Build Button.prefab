@@ -67,8 +67,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Wind Turbine
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5cdd36e6e20be6a469e6ed4ceee92c3a, type: 2}
-  m_sharedMaterial: {fileID: -5140660900827419463, guid: 5cdd36e6e20be6a469e6ed4ceee92c3a,
+  m_fontAsset: {fileID: 11400000, guid: 40d37c64a8e88d442b297f88f5d13ffc, type: 2}
+  m_sharedMaterial: {fileID: 5748981586637862977, guid: 40d37c64a8e88d442b297f88f5d13ffc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

@@ -168,6 +168,58 @@ MonoBehaviour:
   CityBuildingPrefabs:
   - {fileID: 238533307705117856, guid: 608fd111d347fee47a9aeda5b60b1804, type: 3}
   - {fileID: 238533307705117856, guid: 0fc567b9261c5c3468f7dfa714cbe1ce, type: 3}
+--- !u!1 &68254048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 68254050}
+  - component: {fileID: 68254049}
+  m_Layer: 0
+  m_Name: Weather Store
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!114 &68254049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68254048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79539294e5d46794991fccafeaf5aaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeatherDefinitions:
+  - {fileID: 11400000, guid: cc1d61f0a346b0b448fde16946c50495, type: 2}
+  - {fileID: 11400000, guid: 299e540d5319c40418a4795d40e66c03, type: 2}
+  - {fileID: 11400000, guid: e0cf684cafd69ec4a85dfedc67d716ef, type: 2}
+  - {fileID: 11400000, guid: efd78f45309b9d145b7c805e0d04ad29, type: 2}
+  - {fileID: 11400000, guid: d5d33a0f6db45eb49a1a0b8a11912e6e, type: 2}
+  - {fileID: 11400000, guid: 2886fb7a618fd6b45aafb74586ec5b9f, type: 2}
+  - {fileID: 11400000, guid: 1c015f39801fd104ab9562a5ac09ab4b, type: 2}
+  - {fileID: 11400000, guid: bf2692ea0402ac0469a3b024eb8f22c2, type: 2}
+--- !u!4 &68254050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68254048}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &630727520
 GameObject:
   m_ObjectHideFlags: 0

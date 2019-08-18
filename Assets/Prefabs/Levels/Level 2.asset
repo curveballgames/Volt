@@ -21,4 +21,5 @@ MonoBehaviour:
     Progress: 0
     CompletedPreviously: 0
   Conditions: []
-  StartingFunds: 1000
+  WeatherConditions: 000000000100000002000000
+  StartingFunds: 10000

@@ -10,6 +10,7 @@ namespace Volt
         public BuildingIdentifier[] AvailableBuildings;
         public ChallengeModel[] Challenges;
         public LevelCondition[] Conditions;
+        public WeatherType[] WeatherConditions;
         public int StartingFunds;
     }
 }

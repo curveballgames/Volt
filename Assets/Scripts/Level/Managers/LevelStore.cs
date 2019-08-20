@@ -41,11 +41,11 @@ namespace Volt
         {
             LoadLevelData();
 
-            Timer.CreateTimer(gameObject, 0.01f, () =>
+            Timer.CreateTimer(gameObject, new TimerConfig(0.01f, () =>
             {
                 EventSystem.Unsubscribe<LoadGameDataEvent>(OnLoadGameData, this);
                 EventSystem.Publish(new GameDataLoadedEvent());
-            });
+            }));
         }
 
         void OnLoadLevel(LoadLevelEvent e)

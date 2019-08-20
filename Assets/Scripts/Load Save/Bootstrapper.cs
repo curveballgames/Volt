@@ -8,10 +8,10 @@ namespace Volt
         {
             EventSystem.Publish(new LoadGameDataEvent());
 
-            Timer.CreateTimer(gameObject, 0.01f, () =>
+            Timer.CreateTimer(gameObject, new TimerConfig(0.01f, () =>
             {
                 DestroyImmediate(gameObject);
-            });
+            }));
         }
     }
 }

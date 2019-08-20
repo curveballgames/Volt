@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using Curveball;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Volt
 {
@@ -46,6 +48,35 @@ namespace Volt
             }
 
             return gridReferences;
+        }
+
+        public static TimerConfig GetInGameTimerConfig()
+        {
+            return new TimerConfig()
+            {
+                GetTimerDelta = GetInGameDeltaTime
+            };
+        }
+
+        public static TimerConfig GetInGameTimerConfig(float timeout, UnityAction onCompleteCallback)
+        {
+            return new TimerConfig()
+            {
+                Timeout = timeout,
+                OnCompleteCallback = onCompleteCallback,
+                GetTimerDelta = GetInGameDeltaTime,
+                AutoStart = true
+            };
+        }
+
+        private static float GetInGameDeltaTime()
+        {
+            if (LevelStateManager.LevelFinished || LevelStateManager.Paused)
+            {
+                return 0f;
+            }
+
+            return Time.deltaTime;
         }
     }
 }

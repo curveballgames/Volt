@@ -12,16 +12,23 @@ namespace Volt
             Funds = LevelStore.CurrentLevel.StartingFunds;
 
             EventSystem.Subscribe<PlayerBuildingPlacedEvent>(OnPlayerBuildingPlaced, this);
+            EventSystem.Subscribe<CycleFinishedEvent>(OnCycleFinished, this);
         }
 
         private void OnDestroy()
         {
             EventSystem.Unsubscribe<PlayerBuildingPlacedEvent>(OnPlayerBuildingPlaced, this);
+            EventSystem.Unsubscribe<CycleFinishedEvent>(OnCycleFinished, this);
         }
 
         void OnPlayerBuildingPlaced(PlayerBuildingPlacedEvent e)
         {
             Funds -= e.BuildingModel.Cost;
+        }
+
+        void OnCycleFinished(CycleFinishedEvent e)
+        {
+            AddFunds(GetCashflow());
         }
 
         public static void AddFunds(int funds)

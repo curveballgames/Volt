@@ -7,6 +7,7 @@ namespace Volt
     {
         public int Size;
         public int PowerDrain;
+        public int Income;
 
         public void Place()
         {
@@ -20,6 +21,11 @@ namespace Volt
         public int GetPowerDrain()
         {
             return PowerDrain;
+        }
+
+        public int GetIncome()
+        {
+            return Income;
         }
     }
 }

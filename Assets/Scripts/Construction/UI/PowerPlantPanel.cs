@@ -60,7 +60,7 @@ namespace Volt
 
             PowerPlant powerPlant = e.Selected.GetComponent<PowerPlant>();
 
-            if (gameObject != null)
+            if (powerPlant != null)
             {
                 Show(powerPlant);
             }

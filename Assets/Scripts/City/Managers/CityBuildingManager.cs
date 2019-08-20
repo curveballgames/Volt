@@ -6,12 +6,14 @@ namespace Volt
     public class CityBuildingManager : CBGGameObject
     {
         private static List<CityBuildingModel> cityBuildings;
-        private static CachedCalculator drainCalculator;
+        private static CachedCalculator powerDrainCalculator;
+        private static CachedCalculator incomeCalculator;
 
         private void Awake()
         {
             cityBuildings = new List<CityBuildingModel>();
-            drainCalculator = new CachedCalculator(CalculateDrain);
+            powerDrainCalculator = new CachedCalculator(CalculateDrain);
+            incomeCalculator = new CachedCalculator(CalculateIncome);
             EventSystem.Subscribe<CityBuildingPlacedEvent>(OnCityBuildingPlaced, this);
         }
 
@@ -30,7 +32,12 @@ namespace Volt
 
         public static int GetTotalDrain()
         {
-            return drainCalculator.GetCalculation();
+            return powerDrainCalculator.GetCalculation();
+        }
+
+        public static int GetTotalIncome()
+        {
+            return incomeCalculator.GetCalculation();
         }
 
         private static int CalculateDrain()
@@ -40,6 +47,18 @@ namespace Volt
             foreach (CityBuildingModel cityBuilding in cityBuildings)
             {
                 totalDrain += cityBuilding.GetPowerDrain();
+            }
+
+            return totalDrain;
+        }
+
+        private static int CalculateIncome()
+        {
+            int totalDrain = 0;
+
+            foreach (CityBuildingModel cityBuilding in cityBuildings)
+            {
+                totalDrain += cityBuilding.GetIncome();
             }
 
             return totalDrain;

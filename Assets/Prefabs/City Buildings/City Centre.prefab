@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Size: 2
   PowerDrain: 0
+  Income: 200
 --- !u!65 &-1150219119781136411
 BoxCollider:
   m_ObjectHideFlags: 0

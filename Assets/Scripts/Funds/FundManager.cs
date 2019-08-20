@@ -48,7 +48,7 @@ namespace Volt
 
         public static int GetCashflow()
         {
-            return PlayerBuildingManager.GetTotalMaintenanceCost() * -1;
+            return PlayerBuildingManager.GetTotalMaintenanceCost() * -1 + CityBuildingManager.GetTotalIncome();
         }
     }
 }

@@ -16,5 +16,10 @@ namespace Volt
         {
             return 0;
         }
+
+        public override int GetMaintenanceCost()
+        {
+            return BaseMaintenanceCost;
+        }
     }
 }

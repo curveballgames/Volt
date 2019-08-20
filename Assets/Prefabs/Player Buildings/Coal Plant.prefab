@@ -154,9 +154,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c16cf70f2580d94eb6b89cbd6317a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cost: 2500
   View: {fileID: 4154585676259224051}
   MaxPowerOutput: 25
+  BaseMaintenanceCost: 100
   PollutionRate: 100
+  ConsumptionRateCost: 100
 --- !u!114 &4154585676259224051
 MonoBehaviour:
   m_ObjectHideFlags: 0

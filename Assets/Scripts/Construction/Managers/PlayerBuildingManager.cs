@@ -9,6 +9,7 @@ namespace Volt
 
         private static CachedCalculator powerOutputCalculator;
         private static CachedCalculator pollutionCalculator;
+        private static CachedCalculator maintenanceCostCalculator;
 
         private void Awake()
         {
@@ -17,6 +18,7 @@ namespace Volt
 
             powerOutputCalculator = new CachedCalculator(CalculatePowerOutput);
             pollutionCalculator = new CachedCalculator(CalculatePollutionOutput);
+            maintenanceCostCalculator = new CachedCalculator(CalculateMaintenanceCost);
         }
 
         private void OnDestroy()
@@ -45,6 +47,11 @@ namespace Volt
             return pollutionCalculator.GetCalculation();
         }
 
+        public static int GetTotalMaintenanceCost()
+        {
+            return maintenanceCostCalculator.GetCalculation();
+        }
+
         private static int CalculatePowerOutput()
         {
             int power = 0;
@@ -67,6 +74,18 @@ namespace Volt
             }
 
             return power;
+        }
+
+        private static int CalculateMaintenanceCost()
+        {
+            int totalCost = 0;
+
+            foreach (var powerPlant in PowerPlants)
+            {
+                totalCost += powerPlant.GetMaintenanceCost();
+            }
+
+            return totalCost;
         }
     }
 }

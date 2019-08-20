@@ -10,6 +10,18 @@ namespace Volt
         private void Awake()
         {
             Funds = LevelStore.CurrentLevel.StartingFunds;
+
+            EventSystem.Subscribe<PlayerBuildingPlacedEvent>(OnPlayerBuildingPlaced, this);
+        }
+
+        private void OnDestroy()
+        {
+            EventSystem.Unsubscribe<PlayerBuildingPlacedEvent>(OnPlayerBuildingPlaced, this);
+        }
+
+        void OnPlayerBuildingPlaced(PlayerBuildingPlacedEvent e)
+        {
+            Funds -= e.BuildingModel.Cost;
         }
 
         public static void AddFunds(int funds)
@@ -32,6 +44,11 @@ namespace Volt
             }
 
             Funds -= funds;
+        }
+
+        public static int GetCashflow()
+        {
+            return PlayerBuildingManager.GetTotalMaintenanceCost() * -1;
         }
     }
 }

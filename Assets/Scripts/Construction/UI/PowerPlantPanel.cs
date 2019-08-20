@@ -9,6 +9,7 @@ namespace Volt
         public TextMeshProUGUI OutputText;
         public TextMeshProUGUI PollutionText;
         public PowerPlantConsumptionPanel ConsumptionPanel;
+        public TextMeshProUGUI CostText;
 
         private PowerPlant trackedPlant;
 
@@ -36,6 +37,7 @@ namespace Volt
             PlantNameText.text = Curveball.Utilities.GetNameWithoutClone(trackedPlant.gameObject);
             OutputText.text = string.Format("{0}/{1}", trackedPlant.GetPowerOutput(), trackedPlant.MaxPowerOutput);
             PollutionText.text = string.Format("{0}ppm", trackedPlant.GetPollutionOutput());
+            CostText.text = string.Format("£{0} p/m", trackedPlant.GetMaintenanceCost());
 
             if (trackedPlant is NonRenewablePowerPlant)
             {

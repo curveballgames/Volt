@@ -6,6 +6,7 @@ namespace Volt
     {
         public float ConsumptionRate { get; set; }
         public int PollutionRate;
+        public int ConsumptionRateCost;
 
         public override void Place()
         {
@@ -21,6 +22,11 @@ namespace Volt
         public override int GetPollutionOutput()
         {
             return Mathf.FloorToInt(PollutionRate * ConsumptionRate);
+        }
+
+        public override int GetMaintenanceCost()
+        {
+            return BaseMaintenanceCost + Mathf.RoundToInt(ConsumptionRateCost * ConsumptionRate);
         }
     }
 }

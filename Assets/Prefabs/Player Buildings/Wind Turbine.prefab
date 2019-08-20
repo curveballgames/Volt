@@ -46,8 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3bee75a14a4ee4dae04bb68d9b80df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cost: 1000
   View: {fileID: 4154585676259224051}
   MaxPowerOutput: 10
+  BaseMaintenanceCost: 200
   EnergyType: 0
 --- !u!114 &4154585676259224051
 MonoBehaviour:

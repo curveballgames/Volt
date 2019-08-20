@@ -57,12 +57,10 @@ namespace Volt
 
             buildingBeingPlaced.transform.position = new Vector3(x, 0f, z);
 
-            if (!BuildGridManager.CanBuildAt(x, z, buildingBeingPlaced.View.Size))
+            if (!BuildGridManager.CanBuildAt(x, z, buildingBeingPlaced.View.Size) || !buildingBeingPlaced.CanAfford())
             {
-
                 buildingBeingPlaced.View.RenderUnplaceable();
                 return;
-
             }
 
             buildingBeingPlaced.View.RenderPlaceable();

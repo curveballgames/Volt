@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Volt
 {
-    public class InGameCamera : CBGGameObject
+    public class InGameCamera : TrackballCamera
     {
         public static Camera Camera;
 
